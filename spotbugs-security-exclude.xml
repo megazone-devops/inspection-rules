@@ -1,0 +1,37 @@
+<FindBugsFilter>
+	<!-- GLOBAL rule 예외처리 -->
+	<Match>
+		<Bug pattern="
+		CRLF_INJECTION_LOGS,
+		SERVLET_HEADER,
+		HTTP_RESPONSE_SPLITTING
+		" 
+		/>
+	</Match>
+	
+	<!-- 공통컴포넌트 rule 예외처리 -->
+	<Match>
+		<Package name="~com\.megazone\.devops\.common.*" />
+		<Bug pattern="
+		ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD,
+		SE_BAD_FIELD,
+		SE_BAD_FIELD_STORE,
+		SE_COMPARATOR_SHOULD_BE_SERIALIZABLE,
+		SERVLET_PARAMETER,
+		DE_MIGHT_IGNORE,
+		EI_EXPOSE_REP,
+		INSECURE_COOKIE,
+		COOKIE_USAGE,
+		STATIC_IV,
+		REC_CATCH_EXCEPTION
+		" />
+	</Match>
+	
+	<!-- 공통컴포넌트 클래스/메서드 단위 rule 예외처리 -->
+	<Match>
+		<Class name="com.megazone.devops.common.security.encrypt.DataMasker" />
+		<Bug pattern="
+		REDOS
+		" />
+	</Match>
+</FindBugsFilter>
