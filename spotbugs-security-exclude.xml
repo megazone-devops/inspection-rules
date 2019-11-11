@@ -29,9 +29,12 @@
 	
 	<!-- 공통컴포넌트 클래스/메서드 단위 rule 예외처리 -->
 	<Match>
-		<Class name="com.megazone.devops.common.security.encrypt.DataMasker" />
 		<Bug pattern="
 		REDOS
 		" />
+		<Or>
+			<Class name="com.megazone.devops.common.security.encrypt.DataMasker" />
+			<Class name="com.megazone.devops.common.web.msa.ServiceCaller" />
+		</Or>
 	</Match>
 </FindBugsFilter>
